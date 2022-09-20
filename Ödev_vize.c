@@ -2,7 +2,7 @@
 #include<locale.h>
 #include <string.h> 
 
-//Haşim Ensar Kavak 2018280027
+
 
 typedef struct
 {
@@ -13,20 +13,20 @@ char tel[11];
 int bakiye;	
 }kayitlar;
 
-kayitlar musteri[101];  // Kayıtlarda değişiklik yapmak ve sıralama için dizi tanımladım.
+kayitlar musteri[101];  // KayÄ±tlarda deÄŸiÅŸiklik yapmak ve sÄ±ralama iÃ§in dizi tanÄ±mladÄ±m.
 
 
-void dosya() // kayıt dosyasını oluşturma fonksiyonu 
+void dosya() // kayÄ±t dosyasÄ±nÄ± oluÅŸturma fonksiyonu 
 {
 	FILE *dosya;
-	dosya=fopen("müşteriler.dat","w");
+	dosya=fopen("mÃ¼ÅŸteriler.dat","w");
 	char bosalt[]="";
 	int i;
 	for(i=0;i<=100;i++)
 	{
-		musteri[i].hspno=-1; // Boş kayıtları -1 yapmak için.
+		musteri[i].hspno=-1; // BoÅŸ kayÄ±tlarÄ± -1 yapmak iÃ§in.
 		musteri[i].bakiye=0;
-		strcpy(musteri[i].ad,bosalt); // Kayıt dosyasını sıfırlamak istediğimde de kullanmak için boşalttım.
+		strcpy(musteri[i].ad,bosalt); // KayÄ±t dosyasÄ±nÄ± sÄ±fÄ±rlamak istediÄŸimde de kullanmak iÃ§in boÅŸalttÄ±m.
 		strcpy(musteri[i].soyad,bosalt);
 		strcpy(musteri[i].tel,bosalt);
 	}
@@ -35,7 +35,7 @@ void dosya() // kayıt dosyasını oluşturma fonksiyonu
 		fwrite(&musteri[i],sizeof(musteri),1,dosya);
 	}
 	fclose(dosya);
-	printf("Yeni dosya oluşturuldu\n\n");
+	printf("Yeni dosya oluÅŸturuldu\n\n");
 }
 
 
@@ -43,9 +43,9 @@ void diziyeal() //Dosyadaki verileri diziye alma fonksiyonu.
 {
 	FILE *dosya;
 	int j;
-	if((dosya=fopen("müşteriler.dat","r"))==NULL)
+	if((dosya=fopen("mÃ¼ÅŸteriler.dat","r"))==NULL)
 	{
-		printf("Dosya açılamadı!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 	}
 	for(j=0;j<=100;j++)
 	{
@@ -55,13 +55,13 @@ void diziyeal() //Dosyadaki verileri diziye alma fonksiyonu.
 }
 
 
-void yazdir() // Diziyi dosyaya yazdırma fonksiyonu.
+void yazdir() // Diziyi dosyaya yazdÄ±rma fonksiyonu.
 {
 	FILE *dosya;
 	int j;
-	if((dosya=fopen("müşteriler.dat","w"))==NULL)
+	if((dosya=fopen("mÃ¼ÅŸteriler.dat","w"))==NULL)
 	{
-		printf("Dosya açılamadı!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 	}
 	for(j=0;j<=100;j++)
 	{
@@ -71,156 +71,156 @@ void yazdir() // Diziyi dosyaya yazdırma fonksiyonu.
 }
 
 
-void kytekleme() //Yeni kayıt ekleme fonksiyonu.
+void kytekleme() //Yeni kayÄ±t ekleme fonksiyonu.
 {	
 	int i;
 	int secim=1;
-	while(secim==1)   // Var olan kayıtları diziye alma fonksiyonunu main de çağırdım. Ekleme işlemi için dizide değişiklik yaptık.
+	while(secim==1)   // Var olan kayÄ±tlarÄ± diziye alma fonksiyonunu main de Ã§aÄŸÄ±rdÄ±m. Ekleme iÅŸlemi iÃ§in dizide deÄŸiÅŸiklik yaptÄ±k.
 	{
 		fflush(stdin);
-		printf("\nMüşterinin hesap numarasını giriniz. (1-100 arası)\n"); 
+		printf("\nMÃ¼ÅŸterinin hesap numarasÄ±nÄ± giriniz. (1-100 arasÄ±)\n"); 
 		scanf("%d",&i);
 		fflush(stdin);
 		musteri[i].hspno=i;
-		printf("Müşterinin adını giriniz. (max 10 karakter)\n");
+		printf("MÃ¼ÅŸterinin adÄ±nÄ± giriniz. (max 10 karakter)\n");
 		scanf("%s",&musteri[i].ad);
 		fflush(stdin);
-		printf("Müşterinin soyadını giriniz. (max 20 karakter)\n");
+		printf("MÃ¼ÅŸterinin soyadÄ±nÄ± giriniz. (max 20 karakter)\n");
 		scanf("%s",&musteri[i].soyad);
 		fflush(stdin);
-		printf("Müşterinin telefon numarasını giriniz. (başında '0' olmadan)\n");
+		printf("MÃ¼ÅŸterinin telefon numarasÄ±nÄ± giriniz. (baÅŸÄ±nda '0' olmadan)\n");
 		scanf("%s",&musteri[i].tel);
 		fflush(stdin);
-		printf("Müşterinin bakiyesini giriniz. (-50000,+50000 arası)\n");
+		printf("MÃ¼ÅŸterinin bakiyesini giriniz. (-50000,+50000 arasÄ±)\n");
 		scanf("%d",&musteri[i].bakiye);
 		fflush(stdin);
-		printf("Müşteri kayıtlarına devam etmek için => 1\n");
-		printf("Ana menüye dönmek için => 0\n\n");
+		printf("MÃ¼ÅŸteri kayÄ±tlarÄ±na devam etmek iÃ§in => 1\n");
+		printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 		scanf("%d",&secim);
 		fflush(stdin);
 		if(secim==0)
 		{
-			break; // Ekleme işlemi bitince main de çağırılan dosyaya yazma fonksiyonu çalışacak ve dosyaya kaydedilicek.
+			break; // Ekleme iÅŸlemi bitince main de Ã§aÄŸÄ±rÄ±lan dosyaya yazma fonksiyonu Ã§alÄ±ÅŸacak ve dosyaya kaydedilicek.
 		}
 	}
 }
 
-void kytguncelleme() // Var olan kaydı güncelleme fonksiyonu.
+void kytguncelleme() // Var olan kaydÄ± gÃ¼ncelleme fonksiyonu.
 {
 	int i,secim;
-	while(1)        // Var olan kayıtları diziye alma fonksiyonunu main de çağırdım. Değiştirme işlemi için dizide değişiklik yaptık.
+	while(1)        // Var olan kayÄ±tlarÄ± diziye alma fonksiyonunu main de Ã§aÄŸÄ±rdÄ±m. DeÄŸiÅŸtirme iÅŸlemi iÃ§in dizide deÄŸiÅŸiklik yaptÄ±k.
 	{
 		fflush(stdin);
-	printf("\nBakiyesini Değiştirmek için => 1\n");
-	printf("Adını değiştirmek için => 2\n");
-	printf("Soyadını değiştirmek için => 3\n");
-	printf("Telefon numarasını değiştirmek için => 4\n");
-	printf("Ana menüye dönmek için => 0\n\n");
+	printf("\nBakiyesini DeÄŸiÅŸtirmek iÃ§in => 1\n");
+	printf("AdÄ±nÄ± deÄŸiÅŸtirmek iÃ§in => 2\n");
+	printf("SoyadÄ±nÄ± deÄŸiÅŸtirmek iÃ§in => 3\n");
+	printf("Telefon numarasÄ±nÄ± deÄŸiÅŸtirmek iÃ§in => 4\n");
+	printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 	scanf("%d",&secim);
 	switch(secim)
 	{
 		case 1:
-			printf("Güncellemek istediğiniz hesap numarasını giriniz. (1-100)\n");
+			printf("GÃ¼ncellemek istediÄŸiniz hesap numarasÄ±nÄ± giriniz. (1-100)\n");
 			scanf("%d",&i);
-			printf("Lütfen yeni bakiyeyi giriniz.(-50000,+50000 arası)\n");
+			printf("LÃ¼tfen yeni bakiyeyi giriniz.(-50000,+50000 arasÄ±)\n");
 			scanf("%d",&musteri[i].bakiye);
 			break;
 		case 2:
-			printf("Güncellemek istediğiniz hesap numarasını giriniz. (1-100)\n");
+			printf("GÃ¼ncellemek istediÄŸiniz hesap numarasÄ±nÄ± giriniz. (1-100)\n");
 			scanf("%d",&i);
-			printf("Lütfen yeni adı giriniz.(max 10 karakter)\n");
+			printf("LÃ¼tfen yeni adÄ± giriniz.(max 10 karakter)\n");
 			scanf("%s",&musteri[i].ad);
 			break;
 		case 3:
-			printf("Güncellemek istediğiniz hesap numarasını giriniz. (1-100)\n");
+			printf("GÃ¼ncellemek istediÄŸiniz hesap numarasÄ±nÄ± giriniz. (1-100)\n");
 			scanf("%d",&i);
-			printf("Lütfen yeni soyadı giriniz.(max 20 karakter)\n");
+			printf("LÃ¼tfen yeni soyadÄ± giriniz.(max 20 karakter)\n");
 			scanf("%s",&musteri[i].soyad);
 			break;
 		case 4:
-			printf("Güncellemek istediğiniz hesap numarasını giriniz. (1-100)\n");
+			printf("GÃ¼ncellemek istediÄŸiniz hesap numarasÄ±nÄ± giriniz. (1-100)\n");
 			scanf("%d",&i);
-			printf("Lütfen yeni telefon numarasını giriniz.(başında '0' olmadan)\n");
+			printf("LÃ¼tfen yeni telefon numarasÄ±nÄ± giriniz.(baÅŸÄ±nda '0' olmadan)\n");
 			scanf("%s",&musteri[i].tel);		
 			break;
 		case 0:
 			break;
 		default:
-		printf("\nGeçersiz bir giriş yaptınız!\n\n");
+		printf("\nGeÃ§ersiz bir giriÅŸ yaptÄ±nÄ±z!\n\n");
 	}
 		if(secim==0)
 		{
-			break; // Bu işlem sonunda da yazdırma fonksiyonu main de çalışacak.
+			break; // Bu iÅŸlem sonunda da yazdÄ±rma fonksiyonu main de Ã§alÄ±ÅŸacak.
 		}
 	}
 }
 
 
-void kytgoruntuleme() // Kayıtları görüntüleme fonksiyonu.
+void kytgoruntuleme() // KayÄ±tlarÄ± gÃ¶rÃ¼ntÃ¼leme fonksiyonu.
 {
 	FILE *dosya;
-	if((dosya=fopen("müşteriler.dat","r"))==NULL)
+	if((dosya=fopen("mÃ¼ÅŸteriler.dat","r"))==NULL)
 	{
-		printf("Dosya açılamadı!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 	}
 	int a,secim=1;
 	while(secim==1)
 	{
 		system("cls");
 		system("color f");	
-		printf("\nGörüntülemek istediğiniz kaydın hesap numarasını giriniz.(1-100)\n");
+		printf("\nGÃ¶rÃ¼ntÃ¼lemek istediÄŸiniz kaydÄ±n hesap numarasÄ±nÄ± giriniz.(1-100)\n");
 		scanf("%d",&a);
 		fflush(stdin);
-		fseek(dosya,sizeof(musteri)*(a),SEEK_SET);   // Dosyada istediğimiz veriye ulaştık.
+		fseek(dosya,sizeof(musteri)*(a),SEEK_SET);   // Dosyada istediÄŸimiz veriye ulaÅŸtÄ±k.
 		if(fread(&musteri[a],sizeof(musteri),1,dosya)==1) // ve okuduk.
 		{
-			printf("\nHesap Numarası: %d",musteri[a].hspno);
-			printf("\nAdı: %s",musteri[a].ad);
-			printf("\nSoyadı: %s",musteri[a].soyad);
-			printf("\nTelefon Numarası: %s",musteri[a].tel);
+			printf("\nHesap NumarasÄ±: %d",musteri[a].hspno);
+			printf("\nAdÄ±: %s",musteri[a].ad);
+			printf("\nSoyadÄ±: %s",musteri[a].soyad);
+			printf("\nTelefon NumarasÄ±: %s",musteri[a].tel);
 			printf("\nBakiye: %d\n\n",musteri[a].bakiye);
 		}
 		else
 		{
-			printf("Kayıt bulunamadı.Böyle bir kayıt yok\n\n");
+			printf("KayÄ±t bulunamadÄ±.BÃ¶yle bir kayÄ±t yok\n\n");
 		}
 		if(musteri[a].hspno==-1)
 		{
-			printf("!!Kayıt boş!!\n");
+			printf("!!KayÄ±t boÅŸ!!\n");
 		}
-		printf("\nKayıt görüntülemeye devam etmek için => 1\n");
-		printf("Ana menüye dönmek için => 0\n\n");
+		printf("\nKayÄ±t gÃ¶rÃ¼ntÃ¼lemeye devam etmek iÃ§in => 1\n");
+		printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 		scanf("%d",&secim);
 		fflush(stdin);
 	}
 	fclose(dosya);
 }
 
-void silme() // Kayıt silme fonksiyonu.
+void silme() // KayÄ±t silme fonksiyonu.
 {
 	int secim,i;
 	char bosalt[]="";
-	do                   // Yine diziye alma ve dosyaya yazma fonksiyonları main de çağırıldı.
+	do                   // Yine diziye alma ve dosyaya yazma fonksiyonlarÄ± main de Ã§aÄŸÄ±rÄ±ldÄ±.
 	{
 		system("cls");
 		system("color c");
 		fflush(stdin);
-		printf("\nSilmek istediğiniz kaydın hesap numarasını giriniz.(1-100)\n");
+		printf("\nSilmek istediÄŸiniz kaydÄ±n hesap numarasÄ±nÄ± giriniz.(1-100)\n");
 		scanf("%d",&i);
 		musteri[i].hspno=-1;
 		musteri[i].bakiye=0;
 		strcpy(musteri[i].ad,bosalt);
 		strcpy(musteri[i].soyad,bosalt);
 		strcpy(musteri[i].tel,bosalt);
-		printf("\nBaşka bir kaydı silmek için => 1\n");
-		printf("Ana menüye dönmek için => 0\n\n");
+		printf("\nBaÅŸka bir kaydÄ± silmek iÃ§in => 1\n");
+		printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 		scanf("%d",&secim);
 	}while(secim==1);
 }
 
-void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
+void listeleme() // KayÄ±tlarÄ± .txt dosyasÄ±nda listleme fonksiyonu.
 {
-	kayitlar temp; // Sıralarken tutucu struct olması için tanımladım.
+	kayitlar temp; // SÄ±ralarken tutucu struct olmasÄ± iÃ§in tanÄ±mladÄ±m.
 	int i,j,secim;
 	FILE *f;
 	do
@@ -228,22 +228,22 @@ void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
 		system("cls");
 		system("color d");
 		fflush(stdin);
-		printf("\nAda göre sıralamak için => 1\n");
-		printf("Bakiyeye göre sıralamak için => 2\n");
-		printf("Borçluları sıralamak için => 3\n");
-		printf("Borçlu olmayanları sıralamak için => 4\n");
-		printf("Tüm kayıtları hesap numarasına göre sıralamak için => 5\n");
-		printf("Ana menüye dönmek için => 0\n\n");
+		printf("\nAda gÃ¶re sÄ±ralamak iÃ§in => 1\n");
+		printf("Bakiyeye gÃ¶re sÄ±ralamak iÃ§in => 2\n");
+		printf("BorÃ§lularÄ± sÄ±ralamak iÃ§in => 3\n");
+		printf("BorÃ§lu olmayanlarÄ± sÄ±ralamak iÃ§in => 4\n");
+		printf("TÃ¼m kayÄ±tlarÄ± hesap numarasÄ±na gÃ¶re sÄ±ralamak iÃ§in => 5\n");
+		printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 		scanf("%d",&secim);
 		fflush(stdin);
 		switch(secim)
 		{
 			case 1:
-				for (i = 1; i <=100; i++)         // Sıralama algoritması.
+				for (i = 1; i <=100; i++)         // SÄ±ralama algoritmasÄ±.
     			{
 					for (j = 0; j <=100-i; j++)
 					{
-						if (strcmp(musteri[j].ad,musteri[j+1].ad) > 0) // isme göre sıralamak için strcmp kullandım.
+						if (strcmp(musteri[j].ad,musteri[j+1].ad) > 0) // isme gÃ¶re sÄ±ralamak iÃ§in strcmp kullandÄ±m.
            				{
               				temp=musteri[j];
                				musteri[j]=musteri[j+1];
@@ -252,40 +252,40 @@ void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
         			}
    				}
    				
-   				if((f=fopen("Ada göre_sıralı liste.txt","w"))==NULL)
+   				if((f=fopen("Ada gÃ¶re_sÄ±ralÄ± liste.txt","w"))==NULL)
 				{
-					printf("Dosya oluşturulamadı!\n");
+					printf("Dosya oluÅŸturulamadÄ±!\n");
 				}
 				for(i=0;i<=100;i++)
 				{
 					if(musteri[i].hspno!=-1 && musteri[i].hspno!=0)
 					{
-						fprintf(f,"Adı: %s\n",musteri[i].ad);
-						fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-						fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-						fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+						fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+						fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+						fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+						fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 						fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 					}
 				}
-				printf("\nDosyanız Hazır!\n");
+				printf("\nDosyanÄ±z HazÄ±r!\n");
 				fclose(f);
-				printf("\nListe oluşturmaya devam etmek için => 1\n");
-				printf("Ana menüye dönmek için => 0\n\n");
+				printf("\nListe oluÅŸturmaya devam etmek iÃ§in => 1\n");
+				printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 				scanf("%d",&secim);
 				fflush(stdin);
 				break;
 			
 			case 2:
 				fflush(stdin);
-				printf("Küçükten büyüğe göre sıralamak için => 1\n");
-				printf("Büyükten küçüğe sıralamak için => 2\n");
+				printf("KÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe gÃ¶re sÄ±ralamak iÃ§in => 1\n");
+				printf("BÃ¼yÃ¼kten kÃ¼Ã§Ã¼ÄŸe sÄ±ralamak iÃ§in => 2\n");
 				scanf("%d",&secim);
 				fflush(stdin);
 				for (i = 1; i <=100; i++)
                     {
                     	for (j = 0; j <=100-i; j++)
                         {
-							if (musteri[j].bakiye>musteri[j+1].bakiye) // Bakiyeye göre sıralanma.
+							if (musteri[j].bakiye>musteri[j+1].bakiye) // Bakiyeye gÃ¶re sÄ±ralanma.
                             {
                             	temp=musteri[j];
                             	musteri[j]=musteri[j+1];
@@ -295,19 +295,19 @@ void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
                     }
 				if(secim==1)
 				{
-   					if((f=fopen("Bakiyeye göre sıralı liste (Küçükten büyüğe).txt","w"))==NULL)
+   					if((f=fopen("Bakiyeye gÃ¶re sÄ±ralÄ± liste (KÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe).txt","w"))==NULL)
 					{
-						printf("Dosya oluşturulamadı!\n");
+						printf("Dosya oluÅŸturulamadÄ±!\n");
 					}
 					for(i=0;i<=100;i++)
 					{
 						fflush(stdin);
 						if(musteri[i].hspno!=-1 && musteri[i].hspno!=0)
 						{
-							fprintf(f,"Adı: %s\n",musteri[i].ad);
-							fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-							fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-							fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+							fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+							fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+							fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+							fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 							fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 						}
 					}
@@ -318,52 +318,52 @@ void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
 				if(secim==2)
 				{
 					fflush(stdin);
-   					if((f=fopen("Bakiyeye göre_sıralı liste (Büyükten küçüğe).txt","w"))==NULL)
+   					if((f=fopen("Bakiyeye gÃ¶re_sÄ±ralÄ± liste (BÃ¼yÃ¼kten kÃ¼Ã§Ã¼ÄŸe).txt","w"))==NULL)
 					{
-						printf("Dosya oluşturulamadı!\n");
+						printf("Dosya oluÅŸturulamadÄ±!\n");
 					}
-					for(i=100;i>=0;i--) // zaten küçükten büyüğe sıralamıştım tersten yazdırdım direkt.
+					for(i=100;i>=0;i--) // zaten kÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe sÄ±ralamÄ±ÅŸtÄ±m tersten yazdÄ±rdÄ±m direkt.
 					{
 						fflush(stdin);
 						if(musteri[i].hspno!=-1 && musteri[i].hspno!=0)
 						{
-							fprintf(f,"Adı: %s\n",musteri[i].ad);
-							fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-							fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-							fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+							fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+							fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+							fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+							fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 							fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 						}
 					}
 					fclose(f);
 				}
-				printf("\nDosyanız Hazır!\n");
-				printf("\nListe oluşturmaya devam etmek için => 1\n");
-				printf("Ana menüye dönmek için => 0\n\n");
+				printf("\nDosyanÄ±z HazÄ±r!\n");
+				printf("\nListe oluÅŸturmaya devam etmek iÃ§in => 1\n");
+				printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 				scanf("%d",&secim);
 				fflush(stdin);
 				break;
 				
 			case 3:
 				fflush(stdin);
-   				printf("\nKüçükten büyüğe sıralamak için => 1\n");
-   				printf("Büyükten küçüğe sıralamak için => 2\n");
+   				printf("\nKÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe sÄ±ralamak iÃ§in => 1\n");
+   				printf("BÃ¼yÃ¼kten kÃ¼Ã§Ã¼ÄŸe sÄ±ralamak iÃ§in => 2\n");
    				scanf("%d",&secim);
    				fflush(stdin);
-   				if((f=fopen("Borçlu listesi.txt","w"))==NULL)
+   				if((f=fopen("BorÃ§lu listesi.txt","w"))==NULL)
 				{
-					printf("Dosya oluşturulamadı!\n");
+					printf("Dosya oluÅŸturulamadÄ±!\n");
 				}
 				if(secim==1)
 				{
 					for(i=0;i<=100;i++)
 					{
 						fflush(stdin);
-						if((musteri[i].hspno!=-1) && (musteri[i].bakiye<0) && musteri[i].hspno!=0) // sadece borçlular yazdırılsın diye.
+						if((musteri[i].hspno!=-1) && (musteri[i].bakiye<0) && musteri[i].hspno!=0) // sadece borÃ§lular yazdÄ±rÄ±lsÄ±n diye.
 						{
-							fprintf(f,"Adı: %s\n",musteri[i].ad);
-							fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-							fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-							fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+							fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+							fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+							fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+							fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 							fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 						}
 					}
@@ -375,43 +375,43 @@ void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
 						fflush(stdin);
 						if((musteri[i].hspno!=-1) && (musteri[i].bakiye<0) && musteri[i].hspno!=0)
 						{
-							fprintf(f,"Adı: %s\n",musteri[i].ad);
-							fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-							fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-							fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+							fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+							fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+							fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+							fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 							fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 						}
 					}
 				}
-				printf("\nDosyanız Hazır!\n");
+				printf("\nDosyanÄ±z HazÄ±r!\n");
 				fclose(f);
-				printf("\nListe oluşturmaya devam etmek için => 1\n");
-				printf("Ana menüye dönmek için => 0\n\n");
+				printf("\nListe oluÅŸturmaya devam etmek iÃ§in => 1\n");
+				printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 				scanf("%d",&secim);
 				fflush(stdin);
 				break;
 				
 			case 4:
 				fflush(stdin);
-   				printf("\nKüçükten büyüğe sıralamak için => 1\n");
-   				printf("Büyükten küçüğe sıralamak için => 2\n");
+   				printf("\nKÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe sÄ±ralamak iÃ§in => 1\n");
+   				printf("BÃ¼yÃ¼kten kÃ¼Ã§Ã¼ÄŸe sÄ±ralamak iÃ§in => 2\n");
    				scanf("%d",&secim);
    				fflush(stdin);
-   				if((f=fopen("Borçlu olmayanların listesi.txt","w"))==NULL)
+   				if((f=fopen("BorÃ§lu olmayanlarÄ±n listesi.txt","w"))==NULL)
 				{
-					printf("Dosya oluşturulamadı!\n");
+					printf("Dosya oluÅŸturulamadÄ±!\n");
 				}
 				if(secim==1)
 				{
 					for(i=0;i<=100;i++)
 					{
 						fflush(stdin);
-						if(musteri[i].hspno!=-1 && musteri[i].bakiye>0 && musteri[i].hspno!=0) // borçlu olmayanlar yazdırılsın diye.
+						if(musteri[i].hspno!=-1 && musteri[i].bakiye>0 && musteri[i].hspno!=0) // borÃ§lu olmayanlar yazdÄ±rÄ±lsÄ±n diye.
 						{
-							fprintf(f,"Adı: %s\n",musteri[i].ad);
-							fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-							fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-							fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+							fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+							fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+							fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+							fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 							fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 						}
 					}
@@ -423,45 +423,45 @@ void listeleme() // Kayıtları .txt dosyasında listleme fonksiyonu.
 						fflush(stdin);
 						if(musteri[i].hspno!=-1 && musteri[i].bakiye>0 && musteri[i].hspno!=0)
 						{
-							fprintf(f,"Adı: %s\n",musteri[i].ad);
-							fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-							fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-							fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+							fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+							fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+							fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+							fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 							fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 						}
 					}
 				}
-				printf("\nDosyanız Hazır!\n");
+				printf("\nDosyanÄ±z HazÄ±r!\n");
 				fclose(f);
-				printf("\nListe oluşturmaya devam etmek için => 1\n");
-				printf("Ana menüye dönmek için => 0\n\n");
+				printf("\nListe oluÅŸturmaya devam etmek iÃ§in => 1\n");
+				printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 				scanf("%d",&secim);
 				fflush(stdin);
 				break;
 			
 			case 5:
-				diziyeal(); // Başka bir listeleme işleminden sonra yapılırsa hesap numarasına göre sıralı olmadığı için tekrar diziye alma fonksiyonu çağırdım.
+				diziyeal(); // BaÅŸka bir listeleme iÅŸleminden sonra yapÄ±lÄ±rsa hesap numarasÄ±na gÃ¶re sÄ±ralÄ± olmadÄ±ÄŸÄ± iÃ§in tekrar diziye alma fonksiyonu Ã§aÄŸÄ±rdÄ±m.
 				fflush(stdin);
-   				if((f=fopen("Tüm kayıtların listesi.txt","w"))==NULL)
+   				if((f=fopen("TÃ¼m kayÄ±tlarÄ±n listesi.txt","w"))==NULL)
 				{
-					printf("Dosya oluşturulamadı!\n");
+					printf("Dosya oluÅŸturulamadÄ±!\n");
 				}
 				for(i=0;i<=100;i++)
 				{
 					fflush(stdin);
 					if(musteri[i].hspno!=-1 && musteri[i].hspno!=0)
 					{
-						fprintf(f,"Adı: %s\n",musteri[i].ad);
-						fprintf(f,"Soyadı: %s\n",musteri[i].soyad);
-						fprintf(f,"Hesap numarası: %d\n",musteri[i].hspno);
-						fprintf(f,"Telefon numarası: %s\n",musteri[i].tel);
+						fprintf(f,"AdÄ±: %s\n",musteri[i].ad);
+						fprintf(f,"SoyadÄ±: %s\n",musteri[i].soyad);
+						fprintf(f,"Hesap numarasÄ±: %d\n",musteri[i].hspno);
+						fprintf(f,"Telefon numarasÄ±: %s\n",musteri[i].tel);
 						fprintf(f,"Bakiyesi: %d\n\n",musteri[i].bakiye);
 					}
 				}
-				printf("\nDosyanız Hazır!\n");
+				printf("\nDosyanÄ±z HazÄ±r!\n");
 				fclose(f);
-				printf("\nListe oluşturmaya devam etmek için => 1\n");
-				printf("Ana menüye dönmek için => 0\n\n");
+				printf("\nListe oluÅŸturmaya devam etmek iÃ§in => 1\n");
+				printf("Ana menÃ¼ye dÃ¶nmek iÃ§in => 0\n\n");
 				scanf("%d",&secim);
 				fflush(stdin);
 				break;
@@ -477,20 +477,20 @@ setlocale(LC_ALL, "Turkish");
 int secim;
 	while(1)
 	{	
-	system("COLOR e"); // Göz yormaması ve anlaşılırlığı arttırmak için temizleme ve renk değiştirme kullandım.
+	system("COLOR e"); // GÃ¶z yormamasÄ± ve anlaÅŸÄ±lÄ±rlÄ±ÄŸÄ± arttÄ±rmak iÃ§in temizleme ve renk deÄŸiÅŸtirme kullandÄ±m.
 	system("cls");
 	fflush(stdin);
-		printf("*****ANA MENÜ*****\n\n");
-		printf("Kayıt Dosyanız Yoksa 1. Seçeneği Seçiniz!!!!\n");
-		printf("Kayıt dosyasını sıfırlamak için yada dosya yoksa oluşturmak için => 1 (NOT:Eski kayıt silinir)\n");
-		printf("Yeni kayıt eklemek için => 2\n");
-		printf("Kayıt güncelleme için => 3\n");
-		printf("Kayıt görüntüleme için => 4\n");
-		printf("Kayıt silme için => 5\n");
-		printf("Kayıtları listelemek için => 6\n");
-		printf("Çıkmak için => 0\n");
+		printf("*****ANA MENÃœ*****\n\n");
+		printf("KayÄ±t DosyanÄ±z Yoksa 1. SeÃ§eneÄŸi SeÃ§iniz!!!!\n");
+		printf("KayÄ±t dosyasÄ±nÄ± sÄ±fÄ±rlamak iÃ§in yada dosya yoksa oluÅŸturmak iÃ§in => 1 (NOT:Eski kayÄ±t silinir)\n");
+		printf("Yeni kayÄ±t eklemek iÃ§in => 2\n");
+		printf("KayÄ±t gÃ¼ncelleme iÃ§in => 3\n");
+		printf("KayÄ±t gÃ¶rÃ¼ntÃ¼leme iÃ§in => 4\n");
+		printf("KayÄ±t silme iÃ§in => 5\n");
+		printf("KayÄ±tlarÄ± listelemek iÃ§in => 6\n");
+		printf("Ã‡Ä±kmak iÃ§in => 0\n");
 		scanf("%d",&secim);
-		fflush(stdin); // Bellekte tampon görevi gören bir fonksiyonmuş. Bazı problemlerin önüne geçti. (scanf vs.)
+		fflush(stdin); // Bellekte tampon gÃ¶revi gÃ¶ren bir fonksiyonmuÅŸ. BazÄ± problemlerin Ã¶nÃ¼ne geÃ§ti. (scanf vs.)
 		if(secim==0)
 		{
 			break;
@@ -505,7 +505,7 @@ int secim;
 		{
 			system("cls");
 			system("color a");
-			diziyeal(); // Diziye alma ve yazdırma fonksiyonlarını main de çağırdım.
+			diziyeal(); // Diziye alma ve yazdÄ±rma fonksiyonlarÄ±nÄ± main de Ã§aÄŸÄ±rdÄ±m.
 			kytekleme();
 			yazdir();
 		}
